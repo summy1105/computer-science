@@ -1,0 +1,4 @@
+docker build -t myubuntu-os .
+docker run -it -v "$(pwd):/home/ostudy" myubuntu-os
+
+컴파일: gcc [filename]
