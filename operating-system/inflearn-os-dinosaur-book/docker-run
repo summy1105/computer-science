@@ -1,4 +1,12 @@
 docker build -t myubuntu-os .
-docker run -it -v "$(pwd):/home/ostudy" myubuntu-os
+docker run -it -v "$(pwd):/home/ostudy" --name os-test myubuntu-os
+docker exec -it os-test /bin/bash
 
 컴파일: gcc [filename]
+
+shared memory :
+ - gcc 3_16_shm_producer.c -lrt -o producer.out
+ - gcc 3_16_shm_consumer.c -lrt -o consumer.out
+
+socket :
+ - javac -d out *.java
