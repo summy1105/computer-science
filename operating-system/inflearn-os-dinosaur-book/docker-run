@@ -8,5 +8,19 @@ shared memory :
  - gcc 3_16_shm_producer.c -lrt -o producer.out
  - gcc 3_16_shm_consumer.c -lrt -o consumer.out
 
+pipe :
+ - gcc 3_21_ordinary_pipe.c -lrt -o pipe.out
+
 socket :
  - javac -d out *.java
+
+ thread :
+ - gcc -pthread 4_11_pthread.c -o pthread.out
+ - gcc -pthread 4_17_pthread_creation1.c -o pthread1.out
+ - gcc -pthread 4_19_pthread_creation2.c -o pthread2.out
+ - gcc -fopenmp 4_20_OpenMP1.c -o openmp1.out
+ - gcc -fopenmp 4_20_OpenMP2.c -o openmp2.out
+ - gcc -fopenmp 4_20_OpenMP3.c -o sum_with_openmp.out
+ - gcc -fopenmp 4_20_OpenMP4_not.c -o sum_not_parallel.out
+ - time ./sum_not_parallel.out
+ - time ./sum_with_openmp.out
