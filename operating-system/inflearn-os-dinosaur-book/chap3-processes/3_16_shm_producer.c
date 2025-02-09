@@ -11,7 +11,7 @@
 int main()
 {
     const int SIZE = 4096; // the size of shared memory
-    const char *name = "OS"; // the name of shared memory
+    const char *name = "OS"; // the name of shared memory /dev/shm/OS
     const char *message_0 = "Hello, ";
     const char *message_1 = "Shared Memory!\n";
 

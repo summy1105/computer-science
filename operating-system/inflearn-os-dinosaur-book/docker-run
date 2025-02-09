@@ -4,23 +4,30 @@ docker exec -it os-test /bin/bash
 
 컴파일: gcc [filename]
 
+work dir docker : /home/ostudy
+
 shared memory :
- - gcc 3_16_shm_producer.c -lrt -o producer.out
- - gcc 3_16_shm_consumer.c -lrt -o consumer.out
+ - gcc -pthread ./chap3-processes/3_16_shm_producer.c -lrt -o ./out/producer.out
+ - gcc ./chap3-processes/3_16_shm_consumer.c -lrt -o ./out/consumer.out
 
 pipe :
- - gcc 3_21_ordinary_pipe.c -lrt -o pipe.out
+ - gcc ./chap3-processes/3_21_ordinary_pipe.c -lrt -o ./out/pipe.out
 
 socket :
- - javac -d out *.java
+ - javac -d out ./chap3-processes/*.java
+ - java -cp out DateServer
+ - java -cp out DateClient
 
  thread :
- - gcc -pthread 4_11_pthread.c -o pthread.out
- - gcc -pthread 4_17_pthread_creation1.c -o pthread1.out
- - gcc -pthread 4_19_pthread_creation2.c -o pthread2.out
- - gcc -fopenmp 4_20_OpenMP1.c -o openmp1.out
- - gcc -fopenmp 4_20_OpenMP2.c -o openmp2.out
- - gcc -fopenmp 4_20_OpenMP3.c -o sum_with_openmp.out
- - gcc -fopenmp 4_20_OpenMP4_not.c -o sum_not_parallel.out
- - time ./sum_not_parallel.out
- - time ./sum_with_openmp.out
+ - gcc -pthread ./chap4-thread-concurrency/4_11_pthread.c -o ./out/pthread.out
+ - gcc -pthread ./chap4-thread-concurrency/4_17_pthread_creation1.c -o ./out/pthread1.out
+ - gcc -pthread ./chap4-thread-concurrency/4_19_pthread_creation2.c -o ./out/pthread2.out
+ - gcc -fopenmp ./chap4-thread-concurrency/4_20_OpenMP1.c -o ./out/openmp1.out
+ - gcc -fopenmp ./chap4-thread-concurrency/4_20_OpenMP2.c -o ./out/openmp2.out
+ - gcc -fopenmp ./chap4-thread-concurrency/4_20_OpenMP3.c -o ./out/sum_with_openmp.out
+ - gcc -fopenmp ./chap4-thread-concurrency/4_20_OpenMP4_not.c -o ./out/sum_not_parallel.out
+ - time ./out/sum_not_parallel.out
+ - time ./out/sum_with_openmp.out
+ - gcc -pthread ./chap6-synchronization-tools/6_3_Peterson_algorithm.c -o ./out/pthread3.out
+ - gcc -pthread ./chap6-synchronization-tools/6_5_mutex_lock.c -o ./out/pthread4.out
+ - gcc -pthread ./chap6-synchronization-tools/6_6_semaphore2.c -o ./out/pthread5.out
